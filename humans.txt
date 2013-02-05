@@ -1,0 +1,16 @@
+	
+	/* PROJECT */
+	
+	SparkBubbles
+
+
+	/* TEAM */
+	
+	Greg Babula	
+	Front End Developer
+
+
+	/* CREDITS */
+
+	Sparky.js
+	Jacob Kelly

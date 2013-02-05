@@ -1,0 +1,197 @@
+/* 
+
+	SparkBubbles
+
+	by Greg Babula
+
+	http://Babu.la
+
+*/
+
+*, 
+*:before, 
+*:after { -webkit-box-sizing: border-box; box-sizing: border-box; vertical-align: text-top; }
+
+html, body { height: 100%; }
+html { font: normal normal 100%/1em arial, sans-serif; }
+body { background: #2b00a7; color: #333; font: normal normal 0.875em/1em arial, sans-serif; }
+
+/* Animations */
+@-webkit-keyframes float-top-bubble { 
+	0% 		{ top: 2em; } 
+	50% 	{ top: 56em; }
+	100% 	{ top: 2em; } 
+}
+
+@-webkit-keyframes float-big-bubble { 
+	0% 		{ bottom: -159em; } 
+	50% 	{ bottom: 99em; } 
+	100% 	{ bottom: -159em; } 
+}
+
+@-webkit-keyframes pop-bubble { 
+	0% 		{ opacity: 0.4; } 
+	50% 	{ -webkit-transform: scale(6); }
+	100% 	{ opacity: 0; } 
+}
+
+@-webkit-keyframes info-panel { 
+	0% 		{ bottom: -10.9em; opacity: 0; } 
+	100% 	{ bottom: -7.9em; opacity: 0.5; } 
+}
+
+@-webkit-keyframes pulsate-update { 
+	0% 		{ text-shadow: 0 0 10px #ffd800; } 
+	50% 	{ text-shadow: 0 0 20px #ffd800; } 
+	100% 	{ text-shadow: 0 0 10px #ffd800; } 
+}
+
+@-webkit-keyframes level-marker { 
+	0% 		{ opacity: 0; } 
+	0% 		{ opacity: 1; } 
+	100% 	{ opacity: 0; -webkit-transform: translate3d(0,-10em,0); } 
+}
+
+/* Global */
+.none,
+.hide { display: none; }
+.hidden { position: absolute; top: -99em; }
+
+.box_transition {
+  -webkit-transition: all 0.3s ease-out;
+          transition: all 0.3s ease-out;
+}
+
+#wrapper { margin: 0; overflow: hidden; padding: 0; height: 100%; min-height: 500px; min-width: 319px; width: 100%; }	
+
+/* Game UI */
+#score,
+#update,
+#info-panel,
+#controls,
+#progress { font: normal bold 1.5em/1em Helvetica, arial, sans-serif; position: absolute; padding: 1em 1.5em; pointer-events: none; right: 0; text-shadow: -1px -1px 0 rgba(0, 0, 0, 0.5); z-index: 2; }
+
+#score { background: rgba(255, 255, 255, 0.1); border-radius: 0 0 0 .5em; box-shadow: inset 0 -2px 4px rgba(0, 0, 0, 0.3); color: #fff; top: 1em; }
+#update { color: #ffd800; font-size: 1em; right: 6em; text-shadow: 0 0 10px #ffd800; top: 2.2em; -webkit-animation: pulsate-update 1s both infinite; }
+
+/* Paper */
+#paper { cursor: pointer; height: 100%; position: relative; width: 100%; -webkit-transition: all 1.5s ease-in; transition: all 1.5s ease-in; }
+#paper.pause { pointer-events: none; -webkit-filter: grayscale(1); }
+.paper-welcome {
+	background-color: #0048ff;
+	background-image: -webkit-gradient(linear, left top, left bottom, from(#0048ff), to(#2b00a7));
+	background-image: -webkit-linear-gradient(top, #0048ff, #2b00a7);
+	background-image:         linear-gradient(to bottom, #0048ff, #2b00a7);
+}
+.paper-level-two {
+	background-color: #ff5400;
+	background-image: -webkit-gradient(radial, left top, left bottom, from(#ff5400), to(#a93800));
+	background-image: -webkit-radial-gradient(top, #ff5400, #a93800);
+	background-image:         radial-gradient(to bottom, #ff5400, #a93800);
+}
+.paper-level-three {
+	background-color: #fb2900;
+	background-image: -webkit-gradient(radial, left top, left bottom, from(#fb2900), to(#7e1500));
+	background-image: -webkit-radial-gradient(top, #fb2900, #7e1500);
+	background-image:         radial-gradient(to bottom, #fb2900, #7e1500);
+}
+.paper-level-four {
+	background-color: #7e1500;
+	background-image: -webkit-gradient(radial, left top, left bottom, from(#7e1500), to(#1e0500));
+	background-image: -webkit-radial-gradient(top, #7e1500, #1e0500);
+	background-image:         radial-gradient(to bottom, #7e1500, #1e0500);
+}
+.paper-level-five { background-color: #1e0500; }
+
+/* Bubbles */
+b { 
+	background: rgba(255, 255, 255, 0.4); 
+	border: 2px solid rgba(255, 255, 255, 0.1);
+	-webkit-border-radius: 3em;
+    border-radius: 3em;
+	display: block; 
+	height: 3em; 
+	left: 0; 
+	position: absolute; 
+	top: 0; 
+	width: 3em; 
+	-webkit-transition: all 0.3s ease-out; 
+	transition: all 0.3s ease-out;
+	-webkit-transform: translate3d(0,0,0);
+}
+b:hover { -webkit-transform: scale(2); }
+
+.float { -webkit-animation: float-top-bubble 6s both infinite; }
+.pop { pointer-events: none; -webkit-animation: pop-bubble 1.2s both; }
+
+.big-bubble { background: rgba(255, 255, 255, 0.2); border-radius: 12em; bottom: -159em; height: 12em; top: initial; width: 12em; -webkit-border-radius: 12em; -webkit-animation: float-big-bubble 12s both infinite; }
+
+.big-bubble.bb1 { left: 30em; -webkit-animation-delay: 3s; }
+.big-bubble.bb2 { left: 60em; -webkit-animation-delay: 5s; }
+.big-bubble.bb3 { left: 30em; -webkit-animation-delay: 6s; }
+.big-bubble.bb4 { left: 10em; -webkit-animation-delay: 8s; }
+.big-bubble.bb5 { left: 70em; -webkit-animation-delay: 9s; }
+.big-bubble.bb6 { left: 40em; -webkit-animation-delay: 12s; }
+.big-bubble.bb7 { left: 50em; -webkit-animation-delay: 13s; }
+.big-bubble.bb8 { left: 20em; -webkit-animation-delay: 15s; }
+.big-bubble.bb9 { left: 40em; -webkit-animation-delay: 19s; }
+.big-bubble.bb10 { left: 10em; -webkit-animation-delay: 20s; }
+
+.big-bubble.bb11 { left: 10em; -webkit-animation-delay: 21s; }
+.big-bubble.bb12 { left: 40em; -webkit-animation-delay: 23s; }
+.big-bubble.bb13 { left: 30em; -webkit-animation-delay: 25s; }
+.big-bubble.bb14 { left: 20em; -webkit-animation-delay: 27s; }
+.big-bubble.bb15 { left: 20em; -webkit-animation-delay: 29s; }
+.big-bubble.bb16 { left: 60em; -webkit-animation-delay: 32s; }
+.big-bubble.bb17 { left: 50em; -webkit-animation-delay: 34s; }
+.big-bubble.bb18 { left: 10em; -webkit-animation-delay: 36s; }
+.big-bubble.bb19 { left: 80em; -webkit-animation-delay: 37s; }
+.big-bubble.bb20 { left: 40em; -webkit-animation-delay: 39s; }
+
+.big-bubble.bb21 { left: 30em; -webkit-animation-delay: 40s; }
+.big-bubble.bb22 { left: 10em; -webkit-animation-delay: 42s; }
+.big-bubble.bb23 { left: 60em; -webkit-animation-delay: 43s; }
+.big-bubble.bb24 { left: 30em; -webkit-animation-delay: 44s; }
+.big-bubble.bb25 { left: 10em; -webkit-animation-delay: 45s; }
+.big-bubble.bb26 { left: 30em; -webkit-animation-delay: 48s; }
+.big-bubble.bb27 { left: 60em; -webkit-animation-delay: 50s; }
+.big-bubble.bb28 { left: 70em; -webkit-animation-delay: 52s; }
+.big-bubble.bb29 { left: 50em; -webkit-animation-delay: 53s; }
+.big-bubble.bb30 { left: 40em; -webkit-animation-delay: 54s; }
+
+/* Info Panel */
+#info-panel { background: rgba(255, 255, 255, 0.1); border-radius: .5em .5em 0 0; box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.6); bottom: -7.9em; color: #f7f7f7; display: block; left: 50%; margin: 0 0 0 -15em; opacity: 0.5; pointer-events: auto; width: 30em; }
+#info-panel:hover { opacity: 1; }
+#info-panel.intro { -webkit-animation: info-panel 2s both; -webkit-animation-delay: 2s; }
+#info-panel.open { bottom: 0; opacity: 1; }
+
+#info-panel h1 { margin-bottom: 0.875em; }
+#info-panel p { font-size: 0.875em; font-weight: normal; line-height: 1.5em; }
+#info-panel p + p,
+#info-panel ol { font-size: 0.775em; font-weight: normal; }
+#info-panel a { color: #ffd800; text-decoration: none; }
+#info-panel a:hover { text-decoration: underline; }
+
+/* Game Controls */
+#controls { font-size: 1em; font-weight: normal; padding: 1em; pointer-events: auto; right: 0; top: 6.2em; text-align: right; }
+#controls ul { margin: 0; padding: 0; }
+#controls li { list-style-type: none; margin: 0 0 .5em 0; }
+#controls li:last-child { margin-bottom: 0; }
+
+#controls .pause-game { font-weight: bold; }
+#controls a { color: #fff; opacity: 0.5; text-decoration: none; }
+#controls a:hover,
+.pause #controls .pause-game,
+#controls .active { color: #ffd800; opacity: 1; text-shadow: 0 0 10px #ffd800; }
+
+/* Progress Bar */
+#progress { background: rgba(255, 255, 255, 0.1); box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.3); height: 1em; left: 0; padding: 0; top: 0; width: 100%; }
+#progress .bar { background: rgba(255, 255, 255, 0.3); content: ""; display: block; height: 1em; left: 0; position: absolute; max-width: 100%; top: 0; width: 0; -webkit-transition: all 1.4s ease-out; transition: all 1.4s ease-out; }
+
+/* Level Markers */
+h2,
+h3,
+h4,
+h5 { color: #fff; font: normal bold 15em/15em Helvetica, arial, sans-serif; left: 50%; margin: -8em 0 0 -.2em; opacity: 0; position: absolute; pointer-events: none; top: 50%; }
+
+.level-marker { -webkit-animation: level-marker 10s both; }

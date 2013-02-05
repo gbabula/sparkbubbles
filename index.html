@@ -1,0 +1,137 @@
+<!--
+
+    SparkBubbles
+
+    by Greg Babula
+
+    http://Babu.la
+
+-->
+
+<!DOCTYPE html>
+
+<!--[if lt IE 7 ]> <html class="no-touch no-js lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7 ]>    <html class="no-touch no-js ie7" lang="en"> <![endif]-->
+<!--[if IE 8 ]>    <html class="no-touch no-js ie8" lang="en"> <![endif]-->
+<!--[if IE 9 ]>    <html class="no-touch no-js ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-touch no-js" lang="en"> <!--<![endif]-->
+
+<head>
+<meta charset="utf-8">
+<link rel="dns-prefetch" href="//ajax.googleapis.com/">
+
+<title>SparkBubbles | CSS3/Sparky.js Game Experiment by Greg Babula</title>
+
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta http-equiv="imagetoolbar" content="no" />
+
+<meta name="author" content="http://babu.la" />  
+<meta name="copyright" content="&copy; 2012 Greg Babula" /> 
+<meta name="description" content="SparkBubbles is a CSS3/Spark.js Game Experiment by Greg Babula" /> 
+
+<meta property="og:title" content="SparkBubbles" />
+<meta property="og:description" content="SparkBubbles is a CSS3/Spark.js Game Experiment by Greg Babula" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="http://babu.la/sparkbubbles/" />
+<meta property="og:image" content="http://babu.la/sparkbubbles/_assets/icon/touch-icon-iphone4.png" />
+
+<meta name="url" content="http://babu.la/sparkbubbles/" />
+<meta name="controller" content="dashboard" />
+<meta name="userid" content="-1" />
+
+<meta name="viewport" content="width=device-width, maximum-scale=1, minimum-scale=1, initial-scale=1" />
+<meta name="robots" content="index,follow" /> 
+<meta name="robots" content="noodp" />
+
+<link rel="author" href="humans.txt" />
+
+<link rel="shortcut icon" href="_assets/icon/favicon.ico" />
+<link rel="stylesheet" href="_assets/css/reset-min.css" />
+<link rel="stylesheet" href="_assets/css/base.css" />
+
+<script src="_assets/js/libs/modernizr.2.5.2-min.js"></script> 
+
+</head>
+<body>
+
+    <div id="wrapper" role="main">
+
+    	<noscript>
+    		<h1>Warning!</h1>
+                <p>At this point, SparkBubbles is only supported in Webkit browsers with JavaScript enabled. For help enabling JavaScript in your browser, <a href="http://help.yahoo.com/l/us/yahoo/smallbusiness/webhosting/editors/editors-24.html" target="_blank">please click here</a>.</p>
+    	</noscript>
+
+    	<section class="paper-welcome hidden" id="paper">
+
+            <div id="progress">
+                <div class="bar"></div>
+            </div><!--end #progress-->
+
+    		<div id="score"></div><!--end #score-->
+    		<div id="update"></div><!--end #update-->
+
+            <h2>2</h2>
+            <h3>3</h3>
+            <h4>4</h4>
+            <h5>5</h5>
+
+            <section id="controls">
+                <ul>
+                    <li><a href="#" class="pause-game" data-event="toggleGame" title="Pause Game">Pause</a></li>
+                    <li><a href="http://twitter.com/share?text=SparkBubbles%20-%20A%20CSS3/Spark.js%20Game%20Experiment%20by%20@GregBabula&amp;url=http://babu.la/sparkbubbles" class="share-game" data-event="shareGame" target="_blank" title="Share SparkBubbles on Twitter">Tweet</a></li>
+                    <li><a href="http://www.facebook.com/sharer.php?u=http://babu.la/sparkbubbles/" class="share-game" data-event="shareGame" target="_blank" title="Like SparkBubbles on Facebook">Like</a></li>
+                </ul>
+            </section><!--end #controls-->
+
+    		<article class="none box_transition intro" data-event="togglePanel" id="info-panel">
+    			<h1>SparkBubbles</h1>
+    				<p><em>CSS3/<a href="http://sparkyjs.com/" target="_blank">Sparky.js</a> game experiment by <a href="http://gregbabula.info" target="_blank">Greg Babula</a></em>.</p>
+    				<ol class="rules">
+    					<li>Currently only Webkit (Desktop) support.</li>
+    					<li>Big bubbles are worth two points, small bubbles are worth one point.</li>
+    					<li>Total of 5 levels.</li>
+                        <li>Still in active development.</li>
+    				</ol?><!--end .rules-->
+    		</article><!--end .info-panel-->
+
+    		<b class="big-bubble bb1" data-event="popBubble"></b>
+    		<b class="big-bubble bb2" data-event="popBubble"></b>
+    		<b class="big-bubble bb3" data-event="popBubble"></b>
+    		<b class="big-bubble bb4" data-event="popBubble"></b>
+    		<b class="big-bubble bb5" data-event="popBubble"></b>
+    		<b class="big-bubble bb6" data-event="popBubble"></b>
+    		<b class="big-bubble bb7" data-event="popBubble"></b>
+    		<b class="big-bubble bb8" data-event="popBubble"></b>
+    		<b class="big-bubble bb9" data-event="popBubble"></b>
+    		<b class="big-bubble bb10" data-event="popBubble"></b>
+
+    		<b class="big-bubble bb11" data-event="popBubble"></b>
+    		<b class="big-bubble bb12" data-event="popBubble"></b>
+    		<b class="big-bubble bb13" data-event="popBubble"></b>
+    		<b class="big-bubble bb14" data-event="popBubble"></b>
+    		<b class="big-bubble bb15" data-event="popBubble"></b>
+    		<b class="big-bubble bb16" data-event="popBubble"></b>
+    		<b class="big-bubble bb17" data-event="popBubble"></b>
+    		<b class="big-bubble bb18" data-event="popBubble"></b>
+    		<b class="big-bubble bb19" data-event="popBubble"></b>
+    		<b class="big-bubble bb20" data-event="popBubble"></b>
+
+    		<b class="big-bubble bb21" data-event="popBubble"></b>
+    		<b class="big-bubble bb22" data-event="popBubble"></b>
+    		<b class="big-bubble bb23" data-event="popBubble"></b>
+    		<b class="big-bubble bb24" data-event="popBubble"></b>
+    		<b class="big-bubble bb25" data-event="popBubble"></b>
+    		<b class="big-bubble bb26" data-event="popBubble"></b>
+    		<b class="big-bubble bb27" data-event="popBubble"></b>
+    		<b class="big-bubble bb28" data-event="popBubble"></b>
+    		<b class="big-bubble bb29" data-event="popBubble"></b>
+    		<b class="big-bubble bb30" data-event="popBubble"></b>
+
+    	</section><!--end .paper-->
+   
+    </div><!--end #wrapper-->
+
+    <script src="_assets/js/app.js"></script>
+
+</body>
+</html>
